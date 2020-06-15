@@ -1,0 +1,1 @@
+release: npm install && node server.js
