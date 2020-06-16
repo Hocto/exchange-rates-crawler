@@ -1,1 +1,1 @@
-release: npm install && node server.js
+release: npm install && USER=exch PASSWORD=mongo13rates DATABASE=heroku_2f42xc9n node server.js
