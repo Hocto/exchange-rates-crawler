@@ -11,7 +11,11 @@ function startRequest(URL) {
       console.log(err);
     } else {
       var obj = {};
-      var $ = cheerio.load(body);
+      try {
+        var $ = cheerio.load(body);
+      } catch (e) {
+        console.log(e); // handle error
+      }
       $("div.contentLeft>div.kurDetail>div.kurBox").each(function (index) {
         var data, value;
         if (index == 0) {
