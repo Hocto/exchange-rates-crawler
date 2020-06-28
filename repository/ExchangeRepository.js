@@ -13,18 +13,21 @@ async function getIndexByURL(URL) {
 }
 
 async function createIndex(obj) {
-  const sample = new Rate({
-    name: obj.data,
-    url: obj.url,
-    value: [
-      obj.value[0].value,
-      obj.value[1].value,
-      obj.value[2].value,
-      new Date(),
-    ],
-  });
+  if (obj.value && obj.value.length) {
+    const sample = new Rate({
+      name: obj.data,
+      url: obj.url,
+      value: [
+        obj.value[0].value,
+        obj.value[1].value,
+        obj.value[2].value,
+        new Date(),
+      ],
+    });
 
-  const result = await sample.save();
+    const result = await sample.save();
+  }
+
   //console.log(result);
 }
 
